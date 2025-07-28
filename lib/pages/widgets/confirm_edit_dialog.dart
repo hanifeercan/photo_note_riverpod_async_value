@@ -44,7 +44,7 @@ class _ConfirmEditDialogState extends ConsumerState<ConfirmEditDialog> {
       title: const Text('Edit Todo'),
       content: TextField(
         controller: textController,
-         maxLines: widget.titleOrDesc == "title" ? 1 : 3,
+        maxLines: widget.titleOrDesc == "title" ? 1 : 3,
         autofocus: true,
         decoration: InputDecoration(
           errorText: error ? 'Value cannot be empty' : null,
