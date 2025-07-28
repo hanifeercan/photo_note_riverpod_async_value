@@ -16,15 +16,20 @@ class PhotoNoteItem extends ConsumerWidget {
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
-          side: BorderSide(color: Colors.grey.shade300), 
+          side: BorderSide(color: Colors.grey.shade300),
         ),
-        elevation: 2, 
+        elevation: 2,
         margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         child: ListTile(
           onTap: () {
-           
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => PhotoNotesDetailPage(id: photoNote.id),
+              ),
+            );
           },
-          title: Text(photoNote.title, style: TextStyle(fontSize: 20),),
+          title: Text(photoNote.title, style: TextStyle(fontSize: 20)),
           trailing: IconButton(
             onPressed: () async {
               final removeOrNot = await showDialog(
@@ -47,7 +52,7 @@ class PhotoNoteItem extends ConsumerWidget {
                   );
                 },
               );
-      
+
               if (removeOrNot) {
                 ref
                     .read(photoNoteListProvider.notifier)
